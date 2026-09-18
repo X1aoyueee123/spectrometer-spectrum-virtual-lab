@@ -57,11 +57,13 @@
       }
 
       var buildUrl = "Build";
-      var loaderUrl = buildUrl + "/WebGL-Publish.loader.js";
+      // 版本参数让 GitHub Pages 在发布新构建后不复用旧的 WebGL 二进制缓存。
+      var buildVersion = "e80180c";
+      var loaderUrl = buildUrl + "/WebGL-Publish.loader.js?v=" + buildVersion;
       var config = {
-        dataUrl: buildUrl + "/WebGL-Publish.data",
-        frameworkUrl: buildUrl + "/WebGL-Publish.framework.js",
-        codeUrl: buildUrl + "/WebGL-Publish.wasm",
+        dataUrl: buildUrl + "/WebGL-Publish.data?v=" + buildVersion,
+        frameworkUrl: buildUrl + "/WebGL-Publish.framework.js?v=" + buildVersion,
+        codeUrl: buildUrl + "/WebGL-Publish.wasm?v=" + buildVersion,
         streamingAssetsUrl: "StreamingAssets",
         companyName: "DefaultCompany",
         productName: "SodiumDoubletLab",
